@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal informasi Kelas 8A">
+  <title>Class 8A — Rumah Digital 8A</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-photo"></div>
+  <div class="bg-overlay"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#beranda">
+      <span class="brand-mark">8A</span>
+      <span>CLASS 8A</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu">☰</button>
+    <nav id="nav">
+      <a href="#beranda">Beranda</a>
+      <a href="#siswa">Siswa</a>
+      <a href="#piket">Piket</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#visi">Visi & Misi</a>
+      <a href="#galeri">Galeri</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="beranda">
+      <div class="hero-content">
+        <p class="eyebrow">✦ RUMAH DIGITAL 8A ✦</p>
+        <h1>Class <span>8A</span></h1>
+        <p class="hero-subtitle">Bersama Kita Kuat, Bersama Kita Hebat</p>
+        <p class="hero-text">Tempat cerita, canda tawa, perjuangan, prestasi, dan kenangan kelas 8A tersimpan dalam satu ruang digital.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#siswa">👥 Lihat Siswa</a>
+          <a class="btn ghost" href="#galeri">📸 Jelajah Galeri</a>
+        </div>
+        <div class="quick-stats">
+          <div><strong>20</strong><span>Siswa</span></div>
+          <div><strong>8A</strong><span>Kelas</span></div>
+          <div><strong>∞</strong><span>Kenangan</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="seal">8A</div>
+        <p>EST. 2026</p>
+        <h3>Class Memories</h3>
+        <span>Learn • Laugh • Grow</span>
+      </div>
+    </section>
+
+    <section class="section intro" id="tentang">
+      <div class="section-heading">
+        <p class="eyebrow">TENTANG KAMI</p>
+        <h2>Selamat Datang di Portal <em>Kelas 8A</em></h2>
+      </div>
+      <div class="about-grid">
+        <article class="paper-card">
+          <div class="icon">✦</div>
+          <p>Selamat datang di portal informasi Kelas 8A. Kami berkomitmen untuk terus bertumbuh dalam akademik dan karakter.</p>
+        </article>
+        <article class="paper-card highlight">
+          <div class="icon">✨</div>
+          <h3>Rumah Digital 8A</h3>
+          <p>Tempatnya Anak-Anak Seru Berkumpul! Di sinilah semua cerita, canda tawa, dan perjuangan kami di kelas 8 terekam. Mulai dari info tugas yang bikin pusing sampai foto-foto random pas jamkos, semuanya ada di sini. Selamat menjelajahi dunia kami!</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="siswa">
+      <div class="section-heading">
+        <p class="eyebrow">DAFTAR SISWA</p>
+        <h2>Kenali <em>Keluarga 8A</em></h2>
+        <p>Cari berdasarkan nama lengkap, nama panggilan, atau nomor absen.</p>
+      </div>
+      <div class="search-wrap">
+        <span>⌕</span>
+        <input id="studentSearch" type="search" placeholder="Cari siswa..." autocomplete="off">
+      </div>
+      <div class="student-grid" id="studentGrid"></div>
+      <p class="empty" id="emptyState">Siswa tidak ditemukan.</p>
+    </section>
+
+    <section class="section schedule" id="piket">
+      <div class="section-heading">
+        <p class="eyebrow">JADWAL KEBERSIHAN</p>
+        <h2>Piket <em>Kelas 8A</em></h2>
+        <p>Jaga kelas tetap bersih, nyaman, dan rapi. Senin & Jumat dilaksanakan bersama.</p>
+      </div>
+      <div class="piket-frame">
+        <img src="assets/jadwal-piket.jpg" alt="Jadwal piket Kelas 8A" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section values" id="visi">
+      <div class="section-heading">
+        <p class="eyebrow">ARAH KELAS</p>
+        <h2>Visi, Misi & <em>Moto</em></h2>
+      </div>
+      <div class="vision-card">
+        <span class="quote">“</span>
+        <p>Menjadi kelas teladan yang unggul dalam prestasi, solid dalam kebersamaan, dan santun dalam berperilaku.</p>
+        <small>VISI 8A</small>
+      </div>
+      <div class="mission-grid">
+        <article class="paper-card">
+          <span class="number">01</span>
+          <h3>Suasana Belajar</h3>
+          <p>Menciptakan suasana belajar yang kondusif dan saling mendukung.</p>
+        </article>
+        <article class="paper-card">
+          <span class="number">02</span>
+          <h3>Potensi & Bakat</h3>
+          <p>Mengembangkan potensi dan bakat unik setiap anggota kelas.</p>
+        </article>
+        <article class="paper-card">
+          <span class="number">03</span>
+          <h3>Kebersihan & Nama Baik</h3>
+          <p>Menjaga kebersihan, ketertiban, dan nama baik kelas di mana pun berada.</p>
+        </article>
+      </div>
+      <div class="motto">
+        <span>✦ MOTO 8A ✦</span>
+        <h3>Bersama Kita Kuat<br><em>Bersama Kita Hebat</em></h3>
+      </div>
+    </section>
+
+    <section class="section organization">
+      <div class="section-heading">
+        <p class="eyebrow">KEPENGURUSAN</p>
+        <h2>Struktur <em>Organisasi</em></h2>
+        <p>Struktur organisasi Kelas 8A sesuai data yang kamu berikan.</p>
+      </div>
+      <div class="org-board">
+        <div class="org-node main">KELAS 8A</div>
+        <div class="org-line"></div>
+
+        <div class="org-role-grid">
+          <div class="org-node featured">
+            <span class="role-icon">👩‍🏫</span>
+            Wali Kelas
+            <strong>Bu Adelia</strong>
+          </div>
+        </div>
+
+        <div class="org-role-grid two">
+          <div class="org-node">
+            <span class="role-icon">👑</span>
+            Ketua Kelas
+            <strong>Khansa</strong>
+          </div>
+          <div class="org-node">
+            <span class="role-icon">⭐</span>
+            Wakil Ketua
+            <strong>Nizam</strong>
+          </div>
+        </div>
+
+        <div class="org-role-grid four">
+          <div class="org-node">Sekretaris 1<strong>Amora</strong></div>
+          <div class="org-node">Sekretaris 2<strong>Yasmeen</strong></div>
+          <div class="org-node">Bendahara 1<strong>Dhuha</strong></div>
+          <div class="org-node">Bendahara 2<strong>Vani</strong></div>
+        </div>
+
+        <div class="org-divider">✦ SEKSI KELAS ✦</div>
+
+        <div class="org-role-grid five">
+          <div class="org-node">Sie Agama<strong>Khakim</strong></div>
+          <div class="org-node">Sie Humas<strong>Haikal</strong></div>
+          <div class="org-node">Sie Perkap<strong>Nur</strong></div>
+          <div class="org-node">Sie Kebersihan<strong>Aldho</strong></div>
+        </div>
+
+        <div class="org-note">Struktur organisasi Kelas 8A</div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="galeri">
+      <div class="section-heading">
+        <p class="eyebrow">MOMEN 8A</p>
+        <h2>Galeri <em>Kegiatan</em></h2>
+        <p>Beberapa cerita yang berhasil kami abadikan.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item large">
+          <img src="assets/petugas-upacara.jpg" alt="Kegiatan menjadi petugas upacara" loading="lazy">
+          <figcaption><strong>Petugas Upacara</strong><span>Belajar bertanggung jawab bersama</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/berenang.jpg" alt="Kegiatan berenang bersama" loading="lazy">
+          <figcaption><strong>Seru-Seruan Berenang</strong><span>Momen kebersamaan di kolam</span></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="assets/maulid-nabi.jpg" alt="Foto setelah jalan-jalan memperingati Maulid Nabi" loading="lazy">
+          <figcaption><strong>Maulid Nabi</strong><span>Jalan-jalan dan kebersamaan</span></figcaption>
+        </figure>
+        <figure class="gallery-item wide">
+          <img src="assets/membuat-bakpia.jpg" alt="Kegiatan membuat bakpia" loading="lazy">
+          <figcaption><strong>Membuat Bakpia</strong><span>Belajar, mencoba, dan menikmati hasilnya</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section explore">
+      <div class="explore-card">
+        <p class="eyebrow">JELAJAH 8A</p>
+        <h2>Satu kelas, banyak cerita.</h2>
+        <p>Gunakan tombol di bawah untuk kembali melihat teman-teman, jadwal piket, atau galeri kegiatan.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#siswa">👥 Siswa</a>
+          <a class="btn ghost dark" href="#piket">🧹 Jadwal Piket</a>
+          <a class="btn ghost dark" href="#galeri">📸 Galeri</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand">CLASS 8A</div>
+    <p>Rumah Digital 8A • Bersama Kita Kuat, Bersama Kita Hebat</p>
+    <span>Made with ♥ for Class 8A</span>
+  
+      <div class="creator-credit">
+        Dibuat dengan ❤️<br>
+        <strong>By Julian Nur Khakim</strong>
+      </div>
+    
+    </footer>
+
+  <div class="modal" id="studentModal" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+      <div class="modal-avatar" id="modalAvatar">8A</div>
+      <p class="modal-number" id="modalNumber"></p>
+      <h2 id="modalName"></h2>
+      <p id="modalNick"></p>
+    </div>
+  </div>
+
+  <script>
+    const students = [{"no": 1, "nama": "Adh Dhuha Rizaen", "panggilan": "Dhuha"}, {"no": 2, "nama": "Aldho Gavin R", "panggilan": "Aldho"}, {"no": 3, "nama": "Amora Ferra S", "panggilan": "Amora"}, {"no": 4, "nama": "Aqila Isra J", "panggilan": "Aqila"}, {"no": 5, "nama": "Ardy Kenzi P", "panggilan": "Ardy"}, {"no": 6, "nama": "Cherise Felisa Yasmeen", "panggilan": "Yasmeen"}, {"no": 7, "nama": "Fiqrhatul Aisyah", "panggilan": "Aisyah"}, {"no": 8, "nama": "Haikial Nur Fikri A", "panggilan": "Haikal"}, {"no": 9, "nama": "Isnan Zidni A.L", "panggilan": "Isnan"}, {"no": 10, "nama": "Julian Nur Khakim", "panggilan": "Khakim"}, {"no": 11, "nama": "M. Fadli Ramadham", "panggilan": "Fadli"}, {"no": 12, "nama": "M. Rozaq Nur", "panggilan": "Nur"}, {"no": 13, "nama": "M. Wildan Arrohim", "panggilan": "Wildan"}, {"no": 14, "nama": "Novia Sari", "panggilan": "Novia"}, {"no": 15, "nama": "Qatrunnada Khansa H", "panggilan": "Khansa"}, {"no": 16, "nama": "Syashi Afrilla P", "panggilan": "Syashi"}, {"no": 17, "nama": "Vani Kirana A.F", "panggilan": "Vani"}, {"no": 18, "nama": "Zhaira Resi O", "panggilan": "Zhaira"}, {"no": 19, "nama": "Nizam A.W", "panggilan": "Nizam"}, {"no": 20, "nama": "Adrian Rizki Raditya", "panggilan": "Radit"}];
+
+    const grid = document.getElementById("studentGrid");
+    const search = document.getElementById("studentSearch");
+    const empty = document.getElementById("emptyState");
+
+    function renderStudents(keyword = "") {
+      const q = keyword.trim().toLowerCase();
+      const filtered = students.filter(s =>
+        s.nama.toLowerCase().includes(q) ||
+        s.panggilan.toLowerCase().includes(q) ||
+        String(s.no).includes(q)
+      );
+
+      grid.innerHTML = filtered.map(s => `
+        <button class="student-card" data-id="${s.no}">
+          <span class="student-no">${String(s.no).padStart(2, "0")}</span>
+          <span class="student-avatar">${s.panggilan.charAt(0)}</span>
+          <span class="student-info">
+            <strong>${s.panggilan}</strong>
+            <small>${s.nama}</small>
+          </span>
+          <span class="arrow">→</span>
+        </button>
+      `).join("");
+
+      empty.style.display = filtered.length ? "none" : "block";
+      document.querySelectorAll(".student-card").forEach(card => {
+        card.addEventListener("click", () => openStudent(Number(card.dataset.id)));
+      });
+    }
+
+    function openStudent(no) {
+      const s = students.find(x => x.no === no);
+      document.getElementById("modalAvatar").textContent = s.panggilan.charAt(0);
+      document.getElementById("modalNumber").textContent = `ABSEN ${String(s.no).padStart(2, "0")}`;
+      document.getElementById("modalName").textContent = s.nama;
+      document.getElementById("modalNick").textContent = `Nama panggilan: ${s.panggilan}`;
+      document.getElementById("studentModal").classList.add("show");
+      document.getElementById("studentModal").setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal() {
+      document.getElementById("studentModal").classList.remove("show");
+      document.getElementById("studentModal").setAttribute("aria-hidden", "true");
+    }
+
+    search.addEventListener("input", e => renderStudents(e.target.value));
+    document.getElementById("modalClose").addEventListener("click", closeModal);
+    document.getElementById("studentModal").addEventListener("click", e => {
+      if (e.target.id === "studentModal") closeModal();
+    });
+
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    menuBtn.addEventListener("click", () => nav.classList.toggle("open"));
+    nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
+
+    renderStudents();
+  </script>
+</body>
+</html>
