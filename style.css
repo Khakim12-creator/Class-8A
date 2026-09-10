@@ -6,7 +6,7 @@
 }
 html{scroll-behavior:smooth}
 body{font-family:"DM Sans",sans-serif;color:var(--dark);background:#efe1c7;line-height:1.65;overflow-x:hidden}
-.bg-photo{position:fixed;inset:0;background:url("assets/background.jpg") center/cover no-repeat;filter:blur(3px);transform:scale(1.035);z-index:-3}
+.bg-photo{position:fixed;inset:0;background:url("background.jpg") center/cover no-repeat;filter:blur(3px);transform:scale(1.035);z-index:-3}
 .bg-overlay{position:fixed;inset:0;background:rgba(248,240,223,.78);z-index:-2}
 body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;z-index:-1;background-image:radial-gradient(#5a321f .55px,transparent .55px);background-size:8px 8px}
 a{text-decoration:none;color:inherit}
