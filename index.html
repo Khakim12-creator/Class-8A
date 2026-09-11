@@ -328,6 +328,42 @@
     nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => nav.classList.remove("open")));
 
     renderStudents();
+    // Tombol Kembali ke Atas
+const backToTop = document.createElement("button");
+backToTop.innerHTML = "⬆️";
+backToTop.title = "Kembali ke Atas";
+
+backToTop.style.position = "fixed";
+backToTop.style.bottom = "25px";
+backToTop.style.right = "25px";
+backToTop.style.width = "50px";
+backToTop.style.height = "50px";
+backToTop.style.border = "none";
+backToTop.style.borderRadius = "50%";
+backToTop.style.background = "#ffffff";
+backToTop.style.color = "#000000";
+backToTop.style.fontSize = "22px";
+backToTop.style.cursor = "pointer";
+backToTop.style.boxShadow = "0 4px 12px rgba(0,0,0,0.25)";
+backToTop.style.display = "none";
+backToTop.style.zIndex = "9999";
+
+document.body.appendChild(backToTop);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    backToTop.style.display = "block";
+  } else {
+    backToTop.style.display = "none";
+  }
+});
+
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
   </script>
 </body>
 </html>
