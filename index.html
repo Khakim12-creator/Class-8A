@@ -657,13 +657,27 @@ music.addEventListener("ended", () => {
   currentTime.textContent = "0:00";
   playBtn.textContent = "▶️";
   record.classList.remove("playing");
-});
-const menuBtn = document.querySelector('.menu-btn');
-  const navMenu = document.querySelector('nav');
+const menuBtn = document.getElementById("menuBtn");
+  const nav = document.getElementById("nav");
 
-  menuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-  });
+  if (menuBtn && nav) {
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      nav.classList.toggle("open");
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+      });
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!nav.contains(e.target) && !menuBtn.contains(e.target)) {
+        nav.classList.remove("open");
+      }
+    });
+  }
 </script>
   <footer>
   <p>© 2026 Kelas 8A — Rumah Digital Kelas 8A</p>
