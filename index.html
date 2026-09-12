@@ -658,6 +658,12 @@ music.addEventListener("ended", () => {
   playBtn.textContent = "▶️";
   record.classList.remove("playing");
 });
+const menuBtn = document.querySelector('.menu-btn');
+  const navMenu = document.querySelector('nav');
+
+  menuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
 </script>
   <footer>
   <p>© 2026 Kelas 8A — Rumah Digital Kelas 8A</p>
