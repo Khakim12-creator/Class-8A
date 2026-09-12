@@ -552,6 +552,9 @@ backToTop.addEventListener("click", () => {
  
 <script>
 const music = document.getElementById("music");
+music.addEventListener("error", () => {
+  console.error("Audio error:", music.error);
+});
 const playBtn = document.getElementById("playBtn");
 const backBtn = document.getElementById("backBtn");
 const forwardBtn = document.getElementById("forwardBtn");
