@@ -41,6 +41,112 @@ nav#nav a:hover {
   transform: translateY(-2px);
   opacity: 0.8;
 }
+/* ===== PLAYER LAGU KENANGAN ===== */
+
+.music-section {
+  margin: 40px auto;
+  max-width: 900px;
+  padding: 25px;
+  text-align: center;
+}
+
+.music-player {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+}
+
+.record {
+  width: 150px;
+  height: 150px;
+  flex: 0 0 150px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #e74c3c 0 10px, #111 11px 18px, transparent 19px),
+    repeating-radial-gradient(circle at center, #111 0 2px, #222 3px 5px);
+  border: 5px solid #222;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+.record.playing {
+  animation: putarPiringan 3s linear infinite;
+}
+
+@keyframes putarPiringan {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.music-info {
+  flex: 1;
+}
+
+.music-info h3 {
+  margin-bottom: 5px;
+}
+
+.music-info p {
+  margin-top: 0;
+  opacity: .7;
+}
+
+#progress {
+  width: 100%;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.controls button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: #eee;
+}
+
+#playBtn {
+  font-size: 20px;
+  min-width: 55px;
+  background: #3498db;
+  color: white;
+}
+
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+#volume {
+  max-width: 160px;
+}
+
+@media (max-width: 650px) {
+  .music-player {
+    flex-direction: column;
+  }
+}
 </style>
 </head>
 <body>
@@ -398,6 +504,161 @@ backToTop.addEventListener("click", () => {
   });
 });
   </script>
+  <section class="music-section" id="musik">
+  <h2>🎵 Lagu Kenangan Kelas 8A</h2>
+
+  <div class="music-player">
+
+    <div class="record" id="record">
+      <div class="record-center"></div>
+    </div>
+
+    <div class="music-info">
+      <h3>Bergema Sampai Selamanya</h3>
+      <p>Lagu Kenangan Kelas 8A</p>
+
+      <input
+        type="range"
+        id="progress"
+        min="0"
+        max="100"
+        value="0"
+      >
+
+      <div class="time">
+        <span id="currentTime">0:00</span>
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="backBtn" type="button">⏮️ 10s</button>
+        <button id="playBtn" type="button">▶️</button>
+        <button id="forwardBtn" type="button">10s ⏭️</button>
+      </div>
+
+      <div class="volume">
+        🔊
+        <input
+          type="range"
+          id="volume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+        >
+      </div>
+    </div>
+
+    <audio id="music" preload="metadata">
+      <source src="lagu.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+</section>
+<script>
+const music = document.getElementById("music");
+const playBtn = document.getElementById("playBtn");
+const backBtn = document.getElementById("backBtn");
+const forwardBtn = document.getElementById("forwardBtn");
+const progress = document.getElementById("progress");
+const volume = document.getElementById("volume");
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
+const record = document.getElementById("record");
+
+// Mengubah detik menjadi format menit:detik
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return `${minutes}:${secs}`;
+}
+
+// Tombol Play / Pause
+playBtn.addEventListener("click", async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+    } catch (error) {
+      console.error("Musik gagal diputar:", error);
+    }
+  } else {
+    music.pause();
+  }
+});
+
+// Saat musik mulai diputar
+music.addEventListener("play", () => {
+  playBtn.textContent = "⏸️";
+  record.classList.add("playing");
+});
+
+// Saat musik dijeda
+music.addEventListener("pause", () => {
+  playBtn.textContent = "▶️";
+  record.classList.remove("playing");
+});
+
+// Menampilkan durasi lagu
+music.addEventListener("loadedmetadata", () => {
+  duration.textContent = formatTime(music.duration);
+});
+
+// Memperbarui progress bar dan waktu berjalan
+music.addEventListener("timeupdate", () => {
+  if (music.duration) {
+    progress.value =
+      (music.currentTime / music.duration) * 100;
+  }
+
+  currentTime.textContent = formatTime(music.currentTime);
+});
+
+// Geser progress bar untuk pindah posisi lagu
+progress.addEventListener("input", () => {
+  if (music.duration) {
+    music.currentTime =
+      (progress.value / 100) * music.duration;
+  }
+});
+
+// Mundur 10 detik
+backBtn.addEventListener("click", () => {
+  music.currentTime = Math.max(
+    0,
+    music.currentTime - 10
+  );
+});
+
+// Maju 10 detik
+forwardBtn.addEventListener("click", () => {
+  if (music.duration) {
+    music.currentTime = Math.min(
+      music.duration,
+      music.currentTime + 10
+    );
+  }
+});
+
+// Mengatur volume
+volume.addEventListener("input", () => {
+  music.volume = volume.value;
+});
+
+// Saat lagu selesai
+music.addEventListener("ended", () => {
+  progress.value = 0;
+  currentTime.textContent = "0:00";
+  playBtn.textContent = "▶️";
+  record.classList.remove("playing");
+});
+</script>
   <footer>
   <p>© 2026 Kelas 8A — Rumah Digital Kelas 8A</p>
 </footer>
