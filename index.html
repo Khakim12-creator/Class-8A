@@ -212,6 +212,57 @@ body.dark-mode p {
 body.dark-mode .quick-stats {
   color: #f5f5f5;
 }
+    /* ===== GALERI INTERAKTIF ===== */
+
+.gallery img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  border: none;
+  background: white;
+  color: #222;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1);
+}
 </style>
 </head>
 <body>
@@ -752,8 +803,50 @@ darkModeBtn.addEventListener("click", () => {
   }
 });
 </script>
+  <!-- Lightbox Galeri -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" type="button">×</button>
+  <img id="lightboxImage" src="" alt="Foto galeri diperbesar">
+</div>
+  // ===== GALERI INTERAKTIF / LIGHTBOX =====
+
+const galleryImages = document.querySelectorAll(".gallery-item img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
+// Saat foto galeri diklik
+galleryImages.forEach((image) => {
+  image.addEventListener("click", () => {
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt || "Foto galeri";
+    lightbox.classList.add("active");
+  });
+});
+
+// Tutup dengan tombol ×
+lightboxClose.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+
+// Tutup jika klik area hitam di luar foto
+lightbox.addEventListener("click", (event) => {
+  if (event.target === lightbox) {
+    lightbox.classList.remove("active");
+  }
+});
+
+// Tutup dengan tombol Escape
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    lightbox.classList.remove("active");
+  }
+});
+  </script>
+  
   <footer>
   <p>© 2026 Kelas 8A — Rumah Digital Kelas 8A</p>
 </footer>
+  
 </body>
 </html>
