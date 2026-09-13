@@ -263,6 +263,36 @@ body.dark-mode .quick-stats {
 .lightbox-close:hover {
   transform: scale(1.1);
 }
+
+    /* ===== MENU HAMBURGER LEBIH RAPI ===== */
+
+@media (max-width: 650px) {
+  nav#nav.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    width: 190px;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+  }
+
+  nav#nav a {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+}
+    
 </style>
 </head>
 <body>
