@@ -603,16 +603,24 @@ music.addEventListener("pause", () => {
   record.classList.remove("playing");
 });
 
-// Menampilkan durasi lagu
+// Menampilkan waktu tersisa
 music.addEventListener("loadedmetadata", () => {
-  duration.textContent = formatTime(music.duration);
+  duration.textContent = "-" + formatTime(music.duration);
 });
 
-// Memperbarui progress bar dan waktu berjalan
+// Memperbarui progress bar, waktu berjalan, dan waktu tersisa
 music.addEventListener("timeupdate", () => {
   if (music.duration) {
     progress.value =
       (music.currentTime / music.duration) * 100;
+
+    const remainingTime = Math.max(
+      0,
+      music.duration - music.currentTime
+    );
+
+    duration.textContent =
+      "-" + formatTime(remainingTime);
   }
 
   currentTime.textContent = formatTime(music.currentTime);
