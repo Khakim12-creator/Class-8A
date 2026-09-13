@@ -263,13 +263,13 @@ body.dark-mode .quick-stats {
 .lightbox-close:hover {
   transform: scale(1.1);
 }
-
-    /* ===== MENU HAMBURGER LEBIH RAPI ===== */
+/* ===== MENU HAMBURGER ===== */
 
 @media (max-width: 650px) {
-  nav#nav.open {
-    display: flex;
-    flex-direction: column;
+
+  /* Menu disembunyikan saat belum dibuka */
+  nav#nav {
+    display: none;
     position: absolute;
     top: 60px;
     right: 15px;
@@ -278,12 +278,19 @@ body.dark-mode .quick-stats {
     max-height: none;
     overflow: visible;
     padding: 10px;
+    flex-direction: column;
     background: white;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     z-index: 9999;
   }
 
+  /* Saat tombol hamburger ditekan */
+  nav#nav.open {
+    display: flex;
+  }
+
+  /* Link menu */
   nav#nav a {
     width: 100%;
     box-sizing: border-box;
